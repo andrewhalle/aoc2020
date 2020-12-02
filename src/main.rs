@@ -1,4 +1,4 @@
-use aoc2020::*;
+use aoc2020::days::*;
 use std::collections::HashMap;
 
 fn print_usage() -> ! {
