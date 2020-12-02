@@ -1,5 +1,7 @@
 use aoc2020::days::*;
 
+const DAYS: [&'static str; 2] = ["day01", "day02"];
+
 fn print_usage() -> ! {
     eprintln!(
         "USAGE: aoc2020 [day]\n\
@@ -9,17 +11,30 @@ fn print_usage() -> ! {
     std::process::exit(1);
 }
 
-fn main() {
-    let args = std::env::args();
-    let day = args.skip(1).next().unwrap_or_else(|| {
-        print_usage();
-    });
-
+fn day_main(day: &str) {
     let input = std::fs::read_to_string(format!("inputs/{}.input", day))
         .expect(&format!("input file not found for {}", day));
-    match day.as_str() {
+    println!("Solution for {}", day);
+    match day {
         "day01" => println!("{:?}", day01(&input)),
         "day02" => println!("{:?}", day02(&input)),
         _ => print_usage(),
+    }
+}
+
+fn main() {
+    let args = std::env::args();
+    let day = args.skip(1).next();
+
+    match day {
+        Some(day) => day_main(&day),
+        None => {
+            for (i, day) in DAYS.iter().enumerate() {
+                day_main(&day);
+                if i != DAYS.len() - 1 {
+                    println!();
+                }
+            }
+        }
     }
 }
