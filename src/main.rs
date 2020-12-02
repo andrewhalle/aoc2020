@@ -1,5 +1,4 @@
 use aoc2020::days::*;
-use std::collections::HashMap;
 
 fn print_usage() -> ! {
     eprintln!(
@@ -11,9 +10,6 @@ fn print_usage() -> ! {
 }
 
 fn main() {
-    let mut days_handlers = HashMap::new();
-    days_handlers.insert(String::from("day01"), day01);
-
     let args = std::env::args();
     let day = args.skip(1).next().unwrap_or_else(|| {
         print_usage();
@@ -21,7 +17,9 @@ fn main() {
 
     let input = std::fs::read_to_string(format!("inputs/{}.input", day))
         .expect(&format!("input file not found for {}", day));
-    let handler = days_handlers.get(&day).unwrap();
-
-    println!("{:?}", handler(&input));
+    match day.as_str() {
+        "day01" => println!("{:?}", day01(&input)),
+        "day02" => println!("{:?}", day02(&input)),
+        _ => print_usage(),
+    }
 }
