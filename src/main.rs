@@ -4,7 +4,7 @@ use std::collections::HashMap;
 fn print_usage() -> ! {
     eprintln!(
         "USAGE: aoc2020 [day]\n\
-         day - the day to run ('day1', 'day2')"
+         day - the day to run ('day01', 'day02')"
     );
 
     std::process::exit(1);
