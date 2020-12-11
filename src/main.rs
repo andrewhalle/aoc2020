@@ -1,6 +1,6 @@
 use aoc2020::days::*;
 
-const DAYS: [&'static str; 5] = ["day01", "day02", "day03", "day04", "day05"];
+const DAYS: [&'static str; 6] = ["day01", "day02", "day03", "day04", "day05", "day06"];
 
 fn print_usage() -> ! {
     eprintln!(
@@ -21,6 +21,7 @@ fn day_main(day: &str) {
         "day03" => println!("{:?}", day03(&input)),
         "day04" => println!("{:?}", day04(&input)),
         "day05" => println!("{:?}", day05(&input)),
+        "day06" => println!("{:?}", day06(&input)),
         _ => print_usage(),
     }
 }

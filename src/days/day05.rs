@@ -42,7 +42,7 @@ mod tests {
     #[test]
     fn test_day05() {
         let solution = day05(include_str!("../../inputs/day05.input"));
-        assert_eq!(solution.part1, 0);
-        assert_eq!(solution.part2, 0);
+        assert_eq!(solution.part1, 922);
+        assert_eq!(solution.part2, 747);
     }
 }
